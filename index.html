@@ -6,50 +6,119 @@
     <title>Bootstrap demo</title>
     <link rel="stylesheet" href="index.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <script>
+      function sendMail(){
+        var request = new XMLHttpRequest();
+
+    // Instantiating the request object
+    request.open("GET", "index.php");
+
+    // Defining event listener for readystatechange event
+    request.onreadystatechange = function() {
+        // Check if the request is compete and was successful
+        if(this.readyState === 4 && this.status === 200) {
+            // Inserting the response from server into an HTML element
+            document.getElementById("result").innerHTML = this.responseText;
+        }
+    };
+
+    // Sending the request to the server
+    request.send();
+      }
+    </script>
   </head>
   <body class="border border-primary">
-    <div class="container-md text-center maincon">
-      <div class="row justify-content-md-center">
-        <div class="col-4">
-          <img src="https://media.istockphoto.com/photos/happy-young-guy-showing-thumbs-up-sign-picture-id151546027" class="img-fluid" alt="...">
-        </div>
+        <!-- Example Code -->
 
-        <div class="col-6 card">
-          <div class="card-header"><a><b>Chanisco Jardim</b></a></div>
-          <div class="card-body">
-            <p class="text-start">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla pretium sed quam id condimentum. Vivamus nec ultricies augue. Vivamus sagittis.</p>
+        <div class="container text-center">
+          <div class="row justify-content-center">
+            <div class="col-4 card">
+              <div class="card-body">
+                <img
+                  src="https://media.istockphoto.com/photos/happy-young-guy-showing-thumbs-up-sign-picture-id151546027"
+                  class="img-fluid"
+                  alt="..."
+                />
+              </div>
+            </div>
+    
+            <div class="col-6 card">
+              <div class="card-header">
+                <a><b>Chanisco Jardim</b></a>
+              </div>
+              <div class="card-body">
+                <p class="text-start">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla
+                  pretium sed quam id condimentum. Vivamus nec ultricies augue.
+                  Vivamus sagittis.
+                </p>
+              </div>
+              <div class="card-footer text-muted">
+                <a href="www.facebook.com">Facebook</a>
+                <a href="www.instagram.com">Instagram</a>
+              </div>
+            </div>
           </div>
-          <div class="card-footer text-muted">
-            <a href="www.facebook.com">Facebook</a> <a href="www.instagram.com">Instagram</a>
+          <div class="row">
+            <div class="col card">
+              <div class="card-header">Education</div>
+              <div class="card-body">
+                <li>Werenfridus | 20XX-20XX</li>
+                <li>ROC Horizon College | 20XX-2022</li>
+              </div>
+            </div>
+            <div class="w-100"></div>
+    
+            <div class="col card">
+              <div class="card-header">Work Experiences</div>
+              <div class="card-body">
+                <li>DekaMarkt | 20XX-20XX</li>
+                <li>WithZoey | 2022-20XX</li>
+              </div>
+            </div>
+            <div class="w-100"></div>
+    
+            <div class="col card">
+              <div class="card-header">Courses</div>
+              <div class="card-body">
+                <li>Microsoft Words | 20XX-20XX</li>
+                <li>Microsoft Excel | 20XX-20XX</li>
+              </div>
+            </div>
+            <div class="w-100"></div>
+            <div class="col card">
+              <div class="card-header">Courses</div>
+              <div class="card-body">
+                <form>
+                  <div class="mb-3">
+                    <label for="name" class="form-label">Name</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="name"
+                      placeholder="Name"
+                    />
+                  </div>
+                  <div class="mb-3">
+                    <label for="email" class="form-label">Email address</label>
+                    <input
+                      type="email"
+                      class="form-control"
+                      id="email"
+                      placeholder="name@example.com"
+                    />
+                  </div>
+                  <div class="mb-3">
+                    <label for="message" class="form-label">Message</label>
+                    <textarea class="form-control" id="message" rows="3"></textarea>
+                  </div>
+                  <button type="button" onclick="sendMail()">Send</button>
+                </form>
+                <div id="txtHint"></div>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="row">
-        <div class="col card">
-          <div class="card-header">Education</div>
-          <div class="card-body">
-            <li>Werenfridus | 20XX-20XX</li>
-            <li>ROC Horizon College | 20XX-2022</li>
-          </div>
-
-        </div>
-        <div class="col card">
-          <div class="card-header">Work Experiences</div>
-          <div class="card-body">
-            <li>DekaMarkt | 20XX-20XX</li>
-            <li>WithZoey | 2022-20XX </li>
-          </div>
-        </div>
-        <div class="col card">
-          <div class="card-header">Courses</div>
-          <div class="card-body">
-            <li>Microsoft Words | 20XX-20XX</li>
-            <li>Microsoft Excel | 20XX-20XX</li>
-          </div>
-        </div>
-      </div>
-    </div>
-    <h1>Hello, world!</h1>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
   </body>
 </html>
