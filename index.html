@@ -89,7 +89,7 @@
             <div class="col card">
               <div class="card-header">Courses</div>
               <div class="card-body">
-                <form>
+                <form method="post">
                   <div class="mb-3">
                     <label for="name" class="form-label">Name</label>
                     <input
@@ -112,7 +112,7 @@
                     <label for="message" class="form-label">Message</label>
                     <textarea class="form-control" id="message" rows="3"></textarea>
                   </div>
-                  <button type="onclick" onclick="sendMail()">Send</button>
+                  <button type="submit" onsubmit="sendMail()">Send</button>
                 </form>
                 <div id="result"><p></p></div>
               </div>

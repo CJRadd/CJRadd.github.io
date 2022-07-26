@@ -8,7 +8,7 @@ if(isset($_GET["name"]) && isset($_GET["email"]) && isset($_GET["message"])) {
 
     // Displaying a welcome message
     echo "Hello $name, $email, $message ";
-    echo "<p>oops</p>"
+    echo "<p>oops</p>";
 } else {
     echo "<p>Hi there! Welcome to our website.</p>";
 }
