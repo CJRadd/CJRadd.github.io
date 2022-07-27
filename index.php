@@ -1,16 +1,15 @@
 <?php
 
 if(isset($_POST["name"]) && isset($_POST["email"]) && isset($_POST["message"])) {
-    $name = htmlspecialchars($_GET["name"]);
-    $email = htmlspecialchars($_GET["email"]);
-    $message = htmlspecialchars($_GET["message"]);
+    $name = htmlspecialchars($_POST["name"]);
+    $email = htmlspecialchars($_POST["email"]);
+    $message = htmlspecialchars($_POST["message"]);
     
 
-    // Displaying a welcome message
-    echo "console.log('works')";
+    mail('chaniscoj@gmail.com', $name, $message);
+    echo "worked!";
 } else {
-    echo "console.log('nope!')";
-    
+    echo "try again";
 }
 
 ?>
