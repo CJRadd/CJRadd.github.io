@@ -7,12 +7,14 @@
     <link rel="stylesheet" href="index.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
     <script>
-      function sendMail(){
+      function sendMail(formData){
+        console.log(formData.name.value);
         var request = new XMLHttpRequest();
-
+​
     // Instantiating the request object
-    request.open("GET", "index.php");
-
+    request.open("POST", "index.php?name=" + formData.name.value + '&' + 'email=' + formData.email.value);
+    // index.php?name=qwdqeqdqwdqwd&email=qwe@ads.com max-length <= 1024 
+​
     // Defining event listener for readystatechange event
     request.onreadystatechange = function() {
         // Check if the request is compete and was successful
@@ -21,7 +23,7 @@
             document.getElementById("result").innerHTML = this.responseText;
         }
     };
-
+​
     // Sending the request to the server
     request.send();
       }
@@ -29,7 +31,7 @@
   </head>
   <body class="border border-primary">
         <!-- Example Code -->
-
+​
         <div class="container text-center">
           <div class="row justify-content-center">
             <div class="col-4 card">
@@ -89,7 +91,8 @@
             <div class="col card">
               <div class="card-header">Courses</div>
               <div class="card-body">
-                <form action="index.php" method="post">
+                <form onsubmit="return sendMail(this)" method="post">
+<!--                <form action="index.php" method="post">-->
                   <div class="mb-3">
                     <label for="name" class="form-label">Name</label>
                     <input
@@ -112,7 +115,7 @@
                     <label for="message" class="form-label">Message</label>
                     <textarea class="form-control" id="message" rows="3"></textarea>
                   </div>
-                  <button type="submit" onsubmit="sendMail()">Send</button>
+                  <button type="submit">Send</button>
                 </form>
                 <div id="result"><p></p></div>
               </div>
