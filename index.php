@@ -1,9 +1,9 @@
 <?php
 
-if(isset($_POST["name"]) && isset($_POST["email"]) && isset($_POST["message"])) {
-    $name = htmlspecialchars($_POST["name"]);
-    $email = htmlspecialchars($_POST["email"]);
-    $message = htmlspecialchars($_POST["message"]);
+if(isset($_GET["name"]) && isset($_GET["email"]) && isset($_GET["message"])) {
+    $name = htmlspecialchars($_GET["name"]);
+    $email = htmlspecialchars($_GET["email"]);
+    $message = htmlspecialchars($_GET["message"]);
     
 
     mail('chaniscoj@gmail.com', $name, $message);

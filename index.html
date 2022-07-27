@@ -12,7 +12,7 @@
         var request = new XMLHttpRequest();
 
     // Instantiating the request object
-    request.open("POST", "index.php?name=" + formData.name.value + '&email=' + formData.email.value + '&message=' + formData.message.value);
+    request.open("GET", "index.php?name=" + formData.name.value + '&email=' + formData.email.value + '&message=' + formData.message.value);
     // index.php?name=qwdqeqdqwdqwd&email=qwe@ads.com max-length <= 1024 
 
     // Defining event listener for readystatechange event
